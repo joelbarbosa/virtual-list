@@ -1,27 +1,31 @@
 # virtual-list
 
-> virtualize data list
+> virtualize data list (In the process of experiment)
 
 [![NPM](https://img.shields.io/npm/v/virtual-list.svg)](https://www.npmjs.com/package/virtual-list) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-## Install
-
-```bash
-npm install --save virtual-list
-```
-
 ## Usage
 
+<img src="assets/virtual-list.gif" width="300">
+
 ```jsx
-import React, { Component } from 'react'
+import React from 'react'
+import { VirtualList } from 'virtual-list'
 
-import MyComponent from 'virtual-list'
+const totalData = 10000;
 
-class Example extends Component {
-  render () {
-    return (
-      <MyComponent />
-    )
+const loadData = size => {
+  return Array(size)
+    .fill()
+    .map((i, index) => " lorem ipsum: " + index);
+};
+
+export default class App extends React.Component {
+  render() {
+    const list = loadData(totalData);
+    return(
+      <VirtualList data={list} />
+    );
   }
 }
 ```
