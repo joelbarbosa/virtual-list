@@ -15,7 +15,7 @@ export default class App extends React.Component {
     return(
       <div style={{width: "200px", marginLeft: "100px" }}>
         <p>Total data: {totalData}</p>
-        <VirtualList data={list} />
+        <VirtualList data={list} heightWindow={200} />
       </div>
     );
   }
